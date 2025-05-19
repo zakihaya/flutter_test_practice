@@ -3,14 +3,18 @@ import 'package:flutter_test_practice/model/user.dart';
 
 void main() {
   group('User', () {
-    test('Constructor creates a User object with correct properties', () {
-      final user = User(
+    late User user;
+
+    setUp(() {
+      user = User(
         id: '1',
         lastName: '山田',
         firstName: '太郎',
         email: 'yamada.taro@example.com',
       );
+    });
 
+    test('Constructor creates a User object with correct properties', () {
       expect(user.id, '1');
       expect(user.lastName, '山田');
       expect(user.firstName, '太郎');
@@ -18,35 +22,21 @@ void main() {
     });
 
     test('fullName returns the full name', () {
-      final user = User(
-        id: '1',
-        lastName: '山田',
-        firstName: '太郎',
-        email: 'yamada.taro@example.com',
-      );
-
       expect(user.fullName, '山田 太郎');
     });
 
     test('fullName returns the full name with different names', () {
-      final user = User(
+      final user2 = User(
         id: '2',
-        lastName: 'Suzuki',
-        firstName: 'Ichiro',
+        lastName: '鈴木',
+        firstName: '一郎',
         email: 'suzuki.ichiro@example.com',
       );
-
-      expect(user.fullName, 'Suzuki Ichiro');
+      expect(user2.fullName, '鈴木 一郎');
     });
 
     // 配列に値が含まれルコとのテスト
     test('containsValue returns true if the array contains the value', () {
-      final user = User(
-        id: '1',
-        lastName: '山田',
-        firstName: '太郎',
-        email: 'yamada.taro@example.com',
-      );
 
       expect(['1', '2', '3'], contains(user.id));
     });
