@@ -38,5 +38,17 @@ void main() {
 
       expect(user.fullName, 'Suzuki Ichiro');
     });
+
+    // 配列に値が含まれルコとのテスト
+    test('containsValue returns true if the array contains the value', () {
+      final user = User(
+        id: '1',
+        lastName: '山田',
+        firstName: '太郎',
+        email: 'yamada.taro@example.com',
+      );
+
+      expect(['1', '2', '3'], contains(user.id));
+    });
   });
 }

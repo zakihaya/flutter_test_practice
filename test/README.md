@@ -16,3 +16,12 @@ flutter test
 flutter test test/test_name.dart
 ```
 
+## メモ
+
+### テストのマッチャ
+
+下のようなものがある。
+他にも例外が発生することなど、一通りのものは普通にありそう。
+
+- `expect(actual, matcher)`
+- `expect(['1', '2', '3'], contains(user.id))`
